@@ -1,3 +1,6 @@
 class Group < ApplicationRecord
-	has_many :contacts
+  has_many :contacts
+
+  validates :name, presence: true
+  validates :name, presence: true
 end
