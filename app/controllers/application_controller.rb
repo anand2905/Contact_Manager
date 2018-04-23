@@ -3,6 +3,16 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+
+  def after_sign_in_path(resource)
+    stored_location_for(resource) || dashboard_path
+  end
+
+  def after_sign_up_path(resource)
+    after_sign_up_path(resource)
+  end
+
+
   protected
 
   def configure_permitted_parameters
