@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
+
   devise_for :users
 	get "contacts/index", as: 'contacts'
 	get 'contacts/new', as: 'new_contacts'
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
 
   get '/contacts/autocomplete', to: 'contacts#autocomplete'
 
+  get '/dashboard', to: 'dashboard#index'
   post '/groups', to: 'groups#create'
-  root 'contacts#index'
+  root 'home#index'
 end
