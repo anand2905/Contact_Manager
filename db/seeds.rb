@@ -10,8 +10,8 @@ Group.destroy_all
 User.destroy_all
 
 user_ids = []
-user_ids << User.create(name: "Jhon Doe", email: "jhondoe@test.com", password: "123456")
-user_ids << User.create(name: "Jane Roe", email: "janeroe@test.com", password: "123456")
+user_ids << User.create(name: "Jhon Doe", email: "jhondoe@test.com", password: "123456").id
+user_ids << User.create(name: "Jane Roe", email: "janeroe@test.com", password: "123456").id
 
 p "2 user created"
 groups_ids = { user_ids[0] => [], user_ids[1] => []}
