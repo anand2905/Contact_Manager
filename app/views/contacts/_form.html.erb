@@ -1,21 +1,8 @@
 <%= form_for(@contact, url: @contact.new_record? ? create_contact_path : update_contact_path(@contact),  html: { multipart: true }) do |f| %>
 
   <div class="panel-body">
-     <% if @contact.errors.any? %>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="alert alert-danger">
-              <h3>Please correct this following errors:</h3>
 
-                <!-- <ul>
-                  <#%# @contact.errors.full_messages.each do |message| %>
-                      <li><#%= message %></li>
-                  <%# end %>
-                </ul> -->
-            </div>
-              </div>  
-            </div> 
-          <% end %>
+     
 
     <div class="form-horizontal">
       <div class="row">

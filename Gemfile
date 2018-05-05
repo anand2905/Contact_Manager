@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'toastr-rails', '~> 1.0', '>= 1.0.3'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

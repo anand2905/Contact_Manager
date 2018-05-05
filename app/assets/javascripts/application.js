@@ -20,6 +20,7 @@
 //= require jquery-ui/position
 //= require jquery-ui/widgets/autocomplete
 //= require jquery-ui/widgets/menu
+//= require toastr
 //= require_tree .
 
 $( document ).on('turbolinks:load', function() {
@@ -31,4 +32,5 @@ $( document ).on('turbolinks:load', function() {
 				$(this).closest('form').submit();
 			}
 		});
+
 	});
