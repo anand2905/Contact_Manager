@@ -7,11 +7,11 @@
                 <div class="alert alert-danger">
               <h3>Please correct this following errors:</h3>
 
-                <ul>
-                  <% @contact.errors.full_messages.each do |message| %>
-                      <li><%= message %></li>
-                  <% end %>
-                </ul>
+                <!-- <ul>
+                  <#%# @contact.errors.full_messages.each do |message| %>
+                      <li><#%= message %></li>
+                  <%# end %>
+                </ul> -->
             </div>
               </div>  
             </div> 
@@ -19,16 +19,19 @@
 
     <div class="form-horizontal">
       <div class="row">
-        <div class="col-md-8">
-
-
-          <div class="form-group">
+        <div class="col-md-8" >
+          <%= content_tag :div, class: "form-group #{'has-error' if has_error?(@contact, :name)}" do %>
           	<%= f.label :name, class: "control-label col-md-3" %>
            
             <div class="col-md-8">
               <%= f.text_field :name, class: "form-control" %>
+              <% if has_error?(@contact, :name) %>
+                <span class="help-block">
+                  <%= get_error(@contact, :name) %>
+                </span>
+              <% end %>
             </div>
-          </div>
+          <% end %>
 
           <div class="form-group">
           	<%= f.label :company, class: "control-label col-md-3" %>
@@ -38,13 +41,18 @@
             </div>
           </div>
 
-          <div class="form-group">
-          	<%= f.label :email, class: "control-label col-md-3" %>
+          <%= content_tag :div, class: "form-group #{'has-error' if has_error?(@contact, :email)}" do %>
+            <%= f.label :email, class: "control-label col-md-3" %>
            
             <div class="col-md-8">
               <%= f.text_field :email, class: "form-control" %>
+              <% if has_error?(@contact, :email) %>
+                <span class="help-block">
+                  <%= get_error(@contact, :email) %>
+                </span>
+              <% end %>
             </div>
-          </div>
+          <% end %>
 
           <div class="form-group">
           	<%= f.label :phone, class: "control-label col-md-3" %>
@@ -64,7 +72,7 @@
 
 
          
-          <div class="form-group">
+          <%= content_tag :div, class: "form-group #{'has-error' if has_error?(@contact, :group_id)}" do %>
             <%= f.label :group_id, class: "control-label col-md-3" %>
             <div class="col-md-5">
             <% attr = {prompt: "Select Group" } %>
@@ -75,7 +83,14 @@
             <div class="col-md-3">
               <a href="#" id="add-group-btn" class="btn btn-default btn-block">Add Group</a>
             </div>
-          </div>
+            <% if has_error?(@contact, :group_id) %>
+                <div class="col-md-offset-3 col-md-8">
+                  <span class="help-block">
+                    <%= get_error(@contact, :group_id) %>
+                  </span>
+                </div>
+              <% end %>
+          <% end %>
           <div class="form-group" id="add-new-group">
             <div class="col-md-offset-3 col-md-8">
               <div class="input-group">
